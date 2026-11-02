@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MindBridge – Account Update</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <span class="nav-brand">MindBridge</span>
+    <div class="nav-links">
+      <span class="nav-greeting">Welcome, <%= user.first_name %></span>
+      <a href="/dashboard" class="nav-link">Dashboard</a>
+      <a href="/logout" class="nav-link">Logout</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="card">
+      <h2>Account Update</h2>
+
+      <% if (success) { %>
+        <div class="alert alert-success" role="status"><%= success %></div>
+      <% } %>
+      <% if (error) { %>
+        <div class="alert alert-error" role="alert"><%= error %></div>
+      <% } %>
+
+      <form method="POST" action="/account" aria-label="Account update form">
+        <div class="form-group">
+          <label for="first_name">First Name</label>
+          <input
+            type="text"
+            id="first_name"
+            name="first_name"
+            value="<%= user.first_name %>"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="last_name">Last Name</label>
+          <input
+            type="text"
+            id="last_name"
+            name="last_name"
+            value="<%= user.last_name %>"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value="<%= user.email %>"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="phone_number">Phone Number</label>
+          <input
+            type="tel"
+            id="phone_number"
+            name="phone_number"
+            value="<%= user.phone_number %>"
+          />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

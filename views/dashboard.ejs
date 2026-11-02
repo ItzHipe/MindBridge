@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MindBridge – Dashboard</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <span class="nav-brand">MindBridge</span>
+    <div class="nav-links">
+      <span class="nav-greeting">Welcome, <%= user.first_name %></span>
+      <a href="/account" class="nav-link">Account</a>
+      <a href="/logout" class="nav-link">Logout</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="card">
+      <h2>Dashboard</h2>
+      <p>Welcome back, <strong><%= user.first_name %> <%= user.last_name %></strong>.</p>
+      <p>Use the <a href="/account">Account</a> page to view and update your profile information.</p>
+    </div>
+  </div>
+</body>
+</html>
