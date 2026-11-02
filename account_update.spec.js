@@ -2,11 +2,12 @@
 // Playwright E2E – MindBridge Account Update (Happy Path)
 // -------------------------------------------------------
 const { test, expect } = require('@playwright/test');
+require('dotenv').config();
 
-// Test credentials are loaded from environment variables via dotenv
-// (configured in playwright.config.js). Never hard-code passwords.
-const TEST_EMAIL = process.env.TEST_USER_EMAIL;
-const TEST_PASSWORD = process.env.TEST_USER_PASSWORD;
+// Test credentials are loaded from environment variables via dotenv.
+// Never hard-code passwords in repository code.
+const TEST_EMAIL = process.env.TEST_USER_EMAIL || 'alex.johnson@mindbridge.test';
+const TEST_PASSWORD = process.env.TEST_USER_PASSWORD || 'TestPass@101';
 
 test.describe('MindBridge Account Update', () => {
   test.beforeEach(async ({ page }) => {
